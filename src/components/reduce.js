@@ -8,6 +8,12 @@ export const reducer = (state,action) =>{
             modalContent: 'item added'
         }
     }
+    if(action.type === 'CLOSE_MODAL'){
+        return {
+            ...state,
+            isModalOpen: false
+        }
+    }
     return state
 }
 
