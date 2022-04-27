@@ -19,6 +19,9 @@ function Form() {
         if(name){
             const newItem = {id: new Date().getTime().toString(), name}
             dispatch({ type: 'ADD_ITEM',payload: newItem})
+            setName('')
+        }else{
+            dispatch({ type: 'NO_ITEM'})
         }
     }
 
@@ -35,7 +38,7 @@ function Form() {
       {state.people.map((person) =>(
           <div className='data' key={person.id}>
                 <p>{person.name}</p>
-                <button>remove</button>
+                <button onClick={()=> dispatch({ type: 'REMOVE_ITEM',payload: person.id})}>remove</button>
           </div>
       ))}
     </>
